@@ -2,7 +2,7 @@
 
 The `MCMCChainsStorage.jl` package provides options for storing your
 `MCMCChains.jl` chains on disk without using serialization.  Serialization is
-not suitable for long-term storage, or for sharing your chains to colleagues
+not suitable for long-term storage; or for sharing your chains to colleagues
 with different operating systems, Julia versions, or even without Julia.
 `MCMCChainsStorage.jl` solves these problems.
 
@@ -24,7 +24,8 @@ pkg> add https://github.com/farr/MCMCChainsStorage.jl.git
 ### Dependencies
 
 The `MCMCChainsStorage` package depends on the `MCMCChains` and the `HDF5`
-package.
+packages.  If you do not have these packages installed on your system,
+installing `MCMCChainsStorage` will install them automatically.
 
 ## Usage
 
@@ -49,8 +50,8 @@ end
 ```
 
 Reading and writing preserves the sections of the chain, so if you have metadata
-stored in, for example, in the "internals" section, it will be written out and
-read back properly.
+stored in, for example, the "internals" section, it will be written out and read
+back properly.
 
 It is also possible to write a chain to a group in a larger HDF5 file:
 
