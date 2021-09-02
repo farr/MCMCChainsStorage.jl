@@ -11,14 +11,13 @@ options may be added in the future.
 
 ## Installation
 
-TODO: put this package in the general Julia package registry.
-
-To install the package into a Julia environment, start Julia, activate the
+`MCMCChainsStorage.jl` is in the general Julia registry.  That means all you
+need to do to install it is to start Julia, activate your desired
 environment, enter the package management context (type `]`), and issue the
 command
 
 ```julia
-pkg> add https://github.com/farr/MCMCChainsStorage.jl.git
+pkg> add MCMCChainsStorage
 ```
 
 ### Dependencies
