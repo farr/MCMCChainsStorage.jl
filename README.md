@@ -65,6 +65,18 @@ chain = h5open("another_hdf5_file.h5", "r") do f
 end
 ```
 
+## Chain Manipulation
+
+The package provides one additional utility function: if your model returns a
+named tuple of generated quantities, then you can call 
+```julia
+model = ... # Construct a Turing model
+trace = Turing.sample(model, ...) # Construct a chain, of shape `(nsamp, nparams, nchain)`
+full_trace = append_generated_quantities(trace, Turing.generated_quantities(model, trace))
+```
+to obtain an `MCMCChains` object that incorporates both the original samples
+*and* the generated quantities.  
+
 ## Details and Storage Format
 
 The chain is stored with one group for each section (`parameters`, `internals`,
