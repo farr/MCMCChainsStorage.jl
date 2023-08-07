@@ -13,7 +13,7 @@ Write MCMCChains object to the HDF5 file or group.
 """
 function Base.write(f::Union{HDF5.File, HDF5.Group}, c::Chains)
     for s in sections(c)
-        g = create_group(f, string(s))
+        g = create_group(f, string(s); track_order=true)
         for n in names(c, s)
             g[string(n), shuffle=true, deflate=3] = Array(c[n])
         end
